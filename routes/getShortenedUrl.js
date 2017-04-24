@@ -19,7 +19,7 @@ router.get("/:id", function (req, res) {
             throw  err
         var collection = db.collection("urlDocument");
         collection.findOne( {
-            surl : "https://s4o.herokuapp.com//s/"+reqUrl
+            surl : "https://s4o.herokuapp.com/s/"+reqUrl
         }, function (err, result) {
             if(err)
                 throw  err;
