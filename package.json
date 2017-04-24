@@ -1,0 +1,34 @@
+{
+  "name": "fcc-urlshortner",
+  "version": "1.0.0",
+  "description": "A simple url shortner service",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/softmantk/fcc-urlshorthner.git"
+  },
+  "keywords": [
+    "freecodecamp",
+    "url",
+    "shortner",
+    "nodejs"
+  ],
+  "author": "softman",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/softmantk/fcc-urlshorthner/issues"
+  },
+  "homepage": "https://github.com/softmantk/fcc-urlshorthner#readme",
+  "dependencies": {
+    "express": "^4.15.2",
+    "mongodb": "^2.2.26",
+    "morgan": "^1.8.1"
+  },
+  "engines": {
+    "node": "4.1.1"
+  }
+}
