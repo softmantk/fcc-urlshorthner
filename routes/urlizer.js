@@ -3,7 +3,7 @@
  */
 var express = require('express');
 var mongodb = require('mongodb').MongoClient;
-var murl = "mongodb://localhost:27017/urlshortner"
+var murl = "mongodb://admin:admin@ds117251.mlab.com:17251/softmandb"
 
 
 
@@ -12,12 +12,14 @@ var router = express.Router();
 
 router.route('/')
     .get(function (req, res) {
-        res.sendFile("E:/WORKSPACE/TUT/WEB DEVELOPMENT/MEAN/FREECODECAMP/NODE/fcc-urlshortner/public/index.html");
+        res.send("Visit https://s4o.herokuapp.com");
     });
 router.route('/:id*')
     .get(function (req, res) {
 
-        var url = parseInt(req.params.id);
+        var url = req.url.substring(1);
+
+        console.log("url : "+ url);
 
 
         mongodb.connect(murl, function (err, db) {
@@ -27,7 +29,7 @@ router.route('/:id*')
 
             var entry = {
                 url: url,
-                surl : "http://localhost:3000/s/"+Math.floor(Math.random()*(9999 - 1000 + 1) + 1000)
+                surl : "https://s4o.herokuapp.com/s/"+Math.floor(Math.random()*(9999 - 1000 + 1) + 1000)
             };
 
            collection.insertOne(entry, function (err) {
@@ -52,20 +54,3 @@ router.route('/:id*')
 
     });
 module.exports = router;
-/*
-collection.findOne({
-    surl : surl
-}, function (err, result) {
-    if(err) {
-        console.log("ERROR");
-        throw err;
-
-    }
-    if(result) {
-        //already exist
-        console.log("already exist: ", result);
-
-        db.close();
-        // res.redirect("http://www.google.com")
-    } else {
-        console.log(surl+" :not exist");*/

@@ -1,0 +1,24 @@
+.headline {
+    text-align: center !important;
+    color: #191e61;
+}
+body {
+    background-color: #7EE081;
+}
+.subheadline {
+    margin: 2em 5em;
+    color: #5357b9;
+}
+.readme {
+    margin: 0 7em;
+    color: #313B72;
+    font-size: 2em;
+}
+.intent {
+    margin-left: 1em;
+    margin-top: 15px;
+}
+.shortned {
+    background-color: #bbc8fa;
+    display: inline-block;
+}

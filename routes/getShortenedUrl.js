@@ -12,18 +12,20 @@ router.get("/:id", function (req, res) {
 
     var redirectUrl = {};
 
+
     var reqUrl = req.params.id;
-    mongodb.connect("mongodb://localhost:27017/urlshortner", function (err, db) {
+    mongodb.connect("mongodb://admin:admin@ds117251.mlab.com:17251/softmandb", function (err, db) {
         if(err)
             throw  err
         var collection = db.collection("urlDocument");
         collection.findOne( {
-            surl : "http://localhost:3000/s/"+reqUrl
+            surl : "https://s4o.herokuapp.com//s/"+reqUrl
         }, function (err, result) {
             if(err)
-                throw  err
-            console.log("Found: ",JSON.stringify(result.url))
-            res.redirect("https://www.google.co.in/search?q="+JSON.stringify(result.url));
+                throw  err;
+
+            console.log("Found: ",JSON.stringify(result.url));
+            res.redirect(result.url);
         });
         db.close();
     });
